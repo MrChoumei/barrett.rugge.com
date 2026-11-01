@@ -1,31 +1,27 @@
-export async function onRequest(context) {
-    const {
-        request, // same as existing Worker API
-        env, // same as existing Worker API
-        params, // if filename includes [id] or [[path]]
-        waitUntil, // same as ctx.waitUntil in existing Worker API
-        next, // used for middleware or to fetch assets
-        data, // arbitrary space for passing data between middlewares
-    } = context;
+const SITE_ORIGIN = "https://barrett-rugge-com.pages.dev";
 
-    const client_id = env.GITHUB_CLIENT_ID;
+export async function onRequest({ request, env }) {
+  if (!env.GITHUB_CLIENT_ID) {
+    return new Response("OAuth is not configured", { status: 500 });
+  }
 
-    try {
-        const url = new URL(request.url);
-        const redirectUrl = new URL('https://github.com/login/oauth/authorize');
-        redirectUrl.searchParams.set('client_id', client_id);
-        redirectUrl.searchParams.set('redirect_uri', url.origin + '/api/callback');
-        redirectUrl.searchParams.set('scope', 'repo user');
-        redirectUrl.searchParams.set(
-            'state',
-            crypto.getRandomValues(new Uint8Array(12)).join(''),
-        );
-        return Response.redirect(redirectUrl.href, 301);
+  const bytes = crypto.getRandomValues(new Uint8Array(32));
+  const state = Array.from(bytes, b =>
+    b.toString(16).padStart(2, "0")
+  ).join("");
 
-    } catch (error) {
-        console.error(error);
-        return new Response(error.message, {
-            status: 500,
-        });
+  const authorize = new URL("https://github.com/login/oauth/authorize");
+  authorize.searchParams.set("client_id", env.GITHUB_CLIENT_ID);
+  authorize.searchParams.set("redirect_uri", SITE_ORIGIN + "/api/callback");
+  authorize.searchParams.set("scope", "repo");
+  authorize.searchParams.set("state", state);
+
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: authorize.toString(),
+      "Set-Cookie": `oauth_state=${state}; HttpOnly; Secure; SameSite=Lax; Path=/api; Max-Age=600`,
+      "Cache-Control": "no-store"
     }
+  });
 }
