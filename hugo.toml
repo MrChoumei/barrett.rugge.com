@@ -1,7 +1,6 @@
 baseURL = "https://barrett-rugge-com.pages.dev/"
 languageCode = "en-us"
 title = "Barrett Rugge"
-theme = "PaperMod"
 
 [params]
   description = "Articles and writing by Barrett Rugge"
