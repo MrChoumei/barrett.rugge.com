@@ -1,0 +1,26 @@
+baseURL = "https://barrett-rugge-com.pages.dev/"
+languageCode = "en-us"
+title = "Barrett Rugge"
+theme = "PaperMod"
+
+[params]
+  description = "Articles and writing by Barrett Rugge"
+  author = "Barrett Rugge"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+
+[params.homeInfoParams]
+  Title = "Articles by Barrett Rugge"
+  Content = "Thoughts, essays, and articles."
+
+[[menu.main]]
+  name = "Articles"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 20
