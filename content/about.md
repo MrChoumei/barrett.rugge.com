@@ -5,7 +5,7 @@ draft = false
 
 Welcome to my website!
 
-I'm Barrett, a first-year at the University of Washington. My major is Japanese, and my interests are as follows:
+I'm Barrett, a first-year undergraduate at the University of Washington. My major is Japanese, and my interests are as follows:
 
 - Japanese (現代語, 和文, and 漢文)
 - Philosophy (most everything, excluding ethics)
