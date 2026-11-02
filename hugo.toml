@@ -10,6 +10,9 @@ title = "Barrett Rugge"
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
 
+[params.analytics.google]
+SiteVerificationTag = "F9iC32k8IXjE818cDllbodK3Z8bi-EMBz-UEjfP3xHc"
+
 [params.homeInfoParams]
   Title = "Articles by Barrett Rugge"
   Content = "Thoughts, essays, and articles."
