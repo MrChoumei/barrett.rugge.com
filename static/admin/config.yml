@@ -3,7 +3,7 @@ backend:
   repo: MrChoumei/barrett.rugge.com
   branch: main
   base_url: https:/barrett.rugge.com
-  auth_endpoint: /api/auth
+  auth_endpoint: api/auth
 
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
