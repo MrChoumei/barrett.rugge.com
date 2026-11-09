@@ -1,4 +1,4 @@
-const SITE_ORIGIN = "https://barrett-rugge-com.pages.dev";
+const SITE_ORIGIN = "https://barrett.rugge.com";
 
 export async function onRequest({ request, env }) {
   if (!env.GITHUB_CLIENT_ID) {
