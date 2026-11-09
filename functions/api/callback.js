@@ -1,4 +1,4 @@
-const SITE_ORIGIN = "https://barrett-rugge-com.pages.dev";
+const SITE_ORIGIN = "https://barrett.rugge.com";
 
 function popupResponse(status, content, httpStatus = 200) {
   const message = `authorization:github:${status}:${JSON.stringify(content)}`;
