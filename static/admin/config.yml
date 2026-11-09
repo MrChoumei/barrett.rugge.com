@@ -2,8 +2,8 @@ backend:
   name: github
   repo: MrChoumei/barrett.rugge.com
   branch: main
-  base_url: https://barrett-rugge-com.pages.dev
-  site_domain: barrett-rugge-com.pages.dev
+  base_url: https:/barrett.rugge.com
+  site_domain: barrett.rugge.com
   auth_endpoint: /api/auth
 
 media_folder: "static/images/uploads"
